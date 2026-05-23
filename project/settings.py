@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user',
     'categories',
     'products',
+    'fav',
     'contact', 
     'rest_framework',
      "corsheaders",
