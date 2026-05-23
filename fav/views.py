@@ -23,7 +23,7 @@ def fetch_fav(request):
     c=len(value)
     if result :
         value = value.filter(users=result)
-    serializer=FavProduct(value,many=True)
+    serializer=FavProduct(value,many=True,context={'request':request})
     return Response({'count':c,'message':'data fetched successfully','data':serializer.data},status=status.HTTP_200_OK)
 
 
