@@ -1,6 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializer import FavSerializer
+from .serializer import FavSerializer,FavProduct
 from rest_framework import status
 from .models import fav
 
@@ -23,7 +23,7 @@ def fetch_fav(request):
     c=len(value)
     if result :
         value = value.filter(users=result)
-    serializer=FavSerializer(value,many=True)
+    serializer=FavProduct(value,many=True)
     return Response({'count':c,'message':'data fetched successfully','data':serializer.data},status=status.HTTP_200_OK)
 
 
