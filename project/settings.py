@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-&zercbg5wm0omt)=s%tg9+0tlhze1(pwa%@3etpdz))27k6326
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'backend-1-zkla.onrender.com'
+    'backend-1-zkla.onrender.com',
+    '127.0.0.1'
 ]
 
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'products',
     'fav',
     'contact', 
+    'cart',
     'rest_framework',
      "corsheaders",
 ]

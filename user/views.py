@@ -31,7 +31,7 @@ def login_user(request):
     email=request.data.get('email')
     password = request.data.get('password')
     if user.objects.filter(email=email).exists():
-        value=user.objects.filter(email=email).first()
+        value=user.objects.filter(email=email).first()  
         result = UserSerializer(value)
         if password == value.password:
             return Response ({'message':'login successfully','data':result.data},status=status.HTTP_200_OK)
@@ -57,7 +57,7 @@ def get_user_data(request,pk):
 def update_user_data(request,pk):
     value=user.objects.get(pk=pk)
     serializer=UserSerializer(value,data=request.data)
-    if serializer.is_valid():
+    if serializer.is_valid(): 
         serializer.save()
         return Response({'message':'data updated successfully'},status=status.HTTP_202_ACCEPTED)
     return Response({'message':serializer.errors},status=status.HTTP_400_BAD_REQUEST)

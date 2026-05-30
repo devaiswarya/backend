@@ -7,14 +7,30 @@ from .models import fav
 
 @api_view(['POST'])
 def create_fav(request):
-    value = request.data.get('product')
-    if fav.objects.filter(product=value).exists():
-        return Response({'message':'product already exists'},status=status.HTTP_400_BAD_REQUEST)
-    serializer=FavSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response({"message":"data created successfully","data":serializer.data},status=status.HTTP_201_CREATED)
-    return Response({"message":serializer.errors},status=status.HTTP_400_BAD_REQUEST)
+ 
+    user = request.data.get('users')
+    product = request.data.get('product')
+
+    favs = fav.objects.filter(
+        users=user,
+        product=product
+    )
+    # REMOVE FAVOURITE
+    if favs.exists():
+
+        favs.delete()
+
+        return Response({
+            'message':'removed from favourite'
+        },status=status.HTTP_200_OK)
+    # ADD FAVOURITE
+    fav.objects.create(
+        users_id=user,
+        product_id=product
+    )
+    return Response({
+        'message':'added to favourite'
+    },status=status.HTTP_201_CREATED)
 
 @api_view(['GET'])
 def fetch_fav(request):
