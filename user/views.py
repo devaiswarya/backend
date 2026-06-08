@@ -11,7 +11,7 @@ def create_user(request):
     a=len(number)
     password = request.data.get('password')
     confirm = request.data.get('confirm')
-    if user.objects.filter(email=email).exists():
+    if user.objects.filter(email=email).exists(): 
         return Response({'message':'email is already exists'},status=status.HTTP_400_BAD_REQUEST)
     if a!=10:
         return Response({'message':'please enter the valid phone number'},status=status.HTTP_400_BAD_REQUEST)

@@ -15,7 +15,7 @@ def mailSend(request):
     name=request.data.get('name')
     otp=''
     for i in range(6):
-        digit=random.randint(0,9) 
+        digit=random.randint(0,9)
         otp+=str(digit)
 
     serializer=ContactSerializer(data=request.data)

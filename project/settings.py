@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'contact', 
     'cart',
     'rest_framework',
-     "corsheaders",
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -150,7 +150,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # or your SMTP server
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'aiswaryabaloinfotech@gmail.com'
-EMAIL_HOST_PASSWORD = 'ijeb hdhy dykj plse'
+EMAIL_HOST_PASSWORD = 'ijeb hdhy dykj plse','lxiv xkcn xjhf fjxb'
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_USE_SSL = False
 
